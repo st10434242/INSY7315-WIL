@@ -1,7 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.INSY7315_WIL_" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <!-- Same as the light one, no dark theme. -->
+    <style name="Base.Theme.INSY7315_WIL_" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:windowBackground">@color/sgula_background</item>
     </style>
 </resources>

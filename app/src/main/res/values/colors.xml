@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- only for the window background so there's no white flash on startup -->
+    <color name="sgula_background">#FBF8F2</color>
 </resources>
