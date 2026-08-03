@@ -1,13 +1,13 @@
 package com.example.insy7315_wil_
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.widget.FrameLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.button.MaterialButton
+import androidx.core.view.isVisible
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.navOptions
 import com.example.insy7315_wil_.ui.widget.NavItem
-import com.example.insy7315_wil_.ui.widget.SgulaModal
 import com.example.insy7315_wil_.ui.widget.SgulaTabBarView
 import com.example.insy7315_wil_.ui.widget.SgulaTopNavView
 
@@ -18,41 +18,81 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.sgula_screen)
 
-        val content = findViewById<FrameLayout>(R.id.sgula_content)
-        val gallery = LayoutInflater.from(this)
-            .inflate(R.layout.content_gallery, content, true)
+        val navController = (supportFragmentManager
+            .findFragmentById(R.id.sgula_nav_host) as NavHostFragment).navController
+
+        val items = Tabs.map { NavItem(it.route, it.label) }
 
         // only one of these exists, the w1024dp layout swaps the tab bar for the top nav
-        findViewById<SgulaTabBarView>(R.id.sgula_tab_bar)?.apply {
-            setItems(GalleryNavItems, "home")
-            onNavigate = { selectedRoute = it }
+        val tabBar = findViewById<SgulaTabBarView>(R.id.sgula_tab_bar)
+        val topNav = findViewById<SgulaTopNavView>(R.id.sgula_top_nav)
+
+        tabBar?.apply {
+            setItems(items)
+            onNavigate = { navController.switchTab(it) }
         }
-        findViewById<SgulaTopNavView>(R.id.sgula_top_nav)?.apply {
+        topNav?.apply {
             setBrand(getString(R.string.sgula_brand))
-            setItems(GalleryNavItems, "home")
-            onNavigate = { selectedRoute = it }
+            setItems(items)
+            onNavigate = { navController.switchTab(it) }
         }
 
-        gallery.findViewById<MaterialButton>(R.id.gallery_show_modal).setOnClickListener {
-            SgulaModal.show(
-                context = this,
-                title = getString(R.string.sgula_demo_modal_title),
-                body = getString(R.string.sgula_demo_modal_body),
-                confirmText = getString(R.string.sgula_delete),
-                onConfirm = {},
-                dismissText = getString(R.string.sgula_cancel),
-                destructive = true,
-            )
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            val route = TabForDestination[destination.id]
+            tabBar?.isVisible = route != null
+            topNav?.isVisible = route != null
+            if (route != null) {
+                tabBar?.selectedRoute = route
+                topNav?.selectedRoute = route
+            }
         }
     }
 
+    private fun NavController.switchTab(route: String) {
+        val destination = Tabs.firstOrNull { it.route == route }?.destination ?: return
+        if (currentDestination?.id == destination) return
+        navigate(
+            destination,
+            null,
+            navOptions {
+                launchSingleTop = true
+                restoreState = true
+                popUpTo(R.id.homeFragment) { saveState = true }
+            },
+        )
+    }
+
+    private class Tab(val route: String, val label: String, val destination: Int)
+
     private companion object {
-        val GalleryNavItems = listOf(
-            NavItem("home", "Home"),
-            NavItem("mood", "Mood"),
-            NavItem("journal", "Journal"),
-            NavItem("audio", "Audio"),
-            NavItem("profile", "Profile"),
+        val Tabs = listOf(
+            Tab("home", "Home", R.id.homeFragment),
+            Tab("mood", "Mood", R.id.moodLogFragment),
+            Tab("journal", "Journal", R.id.journalEditorFragment),
+            Tab("audio", "Audio", R.id.audioLibraryFragment),
+            Tab("profile", "Profile", R.id.settingsFragment),
+        )
+
+        // a detail screen keeps its parent tab lit, anything missing here hides the bar entirely
+        val TabForDestination = mapOf(
+            R.id.homeFragment to "home",
+            R.id.succulentFragment to "home",
+            R.id.quizStartFragment to "home",
+            R.id.quizQuestionFragment to "home",
+            R.id.quizResultFragment to "home",
+            R.id.moodLogFragment to "mood",
+            R.id.moodHistoryFragment to "mood",
+            R.id.journalEditorFragment to "journal",
+            R.id.journalHistoryFragment to "journal",
+            R.id.audioLibraryFragment to "audio",
+            R.id.playerFragment to "audio",
+            R.id.broadcastFragment to "audio",
+            R.id.broadcastHistoryFragment to "audio",
+            R.id.settingsFragment to "profile",
+            R.id.adminUploadFragment to "profile",
+            R.id.adminAccountsFragment to "profile",
+            R.id.adminEngagementFragment to "profile",
+            R.id.galleryFragment to "profile",
         )
     }
 }

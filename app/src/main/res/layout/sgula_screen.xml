@@ -8,33 +8,20 @@
     android:fitsSystemWindows="true"
     tools:ignore="InconsistentLayout">
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@id/sgula_scroll"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@id/sgula_nav_host"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:paddingLeft="@dimen/sgula_space_4"
+        android:paddingRight="@dimen/sgula_space_4"
+        app:defaultNavHost="true"
+        app:layout_constraintWidth_max="@dimen/sgula_content_max"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/sgula_tab_bar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <FrameLayout
-                android:id="@id/sgula_content"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/sgula_space_4"
-                android:paddingRight="@dimen/sgula_space_4"
-                android:paddingTop="@dimen/sgula_space_5"
-                android:paddingBottom="@dimen/sgula_space_6"
-                app:layout_constraintWidth_max="@dimen/sgula_content_max"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:navGraph="@navigation/nav_graph" />
 
     <com.example.insy7315_wil_.ui.widget.SgulaTabBarView
         android:id="@id/sgula_tab_bar"
