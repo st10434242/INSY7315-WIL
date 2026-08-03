@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sgula_mood_labels">
+        <item>Rough</item>
+        <item>Low</item>
+        <item>Calm</item>
+        <item>Good</item>
+        <item>Great</item>
+    </string-array>
+
+    <string-array name="sgula_plant_stages">
+        <item>Seed</item>
+        <item>Sprout</item>
+        <item>Growing</item>
+        <item>Blooming</item>
+        <item>Wilted</item>
+    </string-array>
+
+    <string-array name="sgula_checkin_times">
+        <item>Morning</item>
+        <item>Afternoon</item>
+        <item>Evening</item>
+    </string-array>
+
+    <string-array name="sgula_audio_tabs">
+        <item>White Noise</item>
+        <item>Nature</item>
+        <item>Guided</item>
+    </string-array>
+
+    <string-array name="sgula_meditation_quiz">
+        <item>I want to release tension in my body</item>
+        <item>I want to quiet racing thoughts</item>
+        <item>I want help falling asleep</item>
+    </string-array>
+
+    <string-array name="sgula_tabs_sample">
+        <item>Week</item>
+        <item>Month</item>
+        <item>Year</item>
+    </string-array>
+
+    <string-array name="sgula_quiz_sample">
+        <item>I felt calm for most of the day.</item>
+        <item>I had a few rough patches.</item>
+        <item>I struggled to settle at all.</item>
+    </string-array>
+
+    <array name="sgula_mood_tones">
+        <item>@color/sgula_warm_gray_300</item>
+        <item>@color/sgula_plum_300</item>
+        <item>@color/sgula_plum_400</item>
+        <item>@color/sgula_plum_500</item>
+        <item>@color/sgula_accent_500</item>
+    </array>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/plant_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@drawable/sgula_plant_item_bg"
+    android:paddingLeft="@dimen/sgula_space_1"
+    android:paddingRight="@dimen/sgula_space_1"
+    android:paddingTop="@dimen/sgula_space_3"
+    android:paddingBottom="@dimen/sgula_space_3">
+
+    <FrameLayout
+        android:id="@+id/plant_ring"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:background="@drawable/sgula_plant_ring"
+        android:duplicateParentState="true">
+
+        <View
+            android:id="@+id/plant_dot"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_gravity="center"
+            android:background="@drawable/sgula_dot_14"
+            android:backgroundTint="@color/sgula_plant_dot"
+            android:duplicateParentState="true" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/plant_label"
+        style="@style/Widget.Sgula.Text.PlantLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sgula_space_2"
+        android:gravity="center_horizontal"
+        android:duplicateParentState="true"
+        tools:text="Growing" />
+</LinearLayout>

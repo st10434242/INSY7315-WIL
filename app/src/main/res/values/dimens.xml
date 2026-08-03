@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sgula_space_1">4dp</dimen>
+    <dimen name="sgula_space_2">8dp</dimen>
+    <dimen name="sgula_space_3">12dp</dimen>
+    <dimen name="sgula_space_4">16dp</dimen>
+    <dimen name="sgula_space_5">24dp</dimen>
+    <dimen name="sgula_space_6">32dp</dimen>
+    <dimen name="sgula_space_7">40dp</dimen>
+    <dimen name="sgula_space_8">48dp</dimen>
+    <dimen name="sgula_space_9">64dp</dimen>
+
+    <dimen name="sgula_radius_sm">8dp</dimen>
+    <dimen name="sgula_radius_md">12dp</dimen>
+    <dimen name="sgula_radius_lg">16dp</dimen>
+    <dimen name="sgula_radius_full">999dp</dimen>
+
+    <dimen name="sgula_elevation_sm">2dp</dimen>
+    <dimen name="sgula_elevation_md">6dp</dimen>
+    <dimen name="sgula_elevation_lg">12dp</dimen>
+
+    <dimen name="sgula_content_max">1100dp</dimen>
+    <dimen name="sgula_tab_bar_height">72dp</dimen>
+    <dimen name="sgula_top_nav_height">72dp</dimen>
+    <dimen name="sgula_min_touch_target">48dp</dimen>
+
+    <dimen name="sgula_font_xs">13sp</dimen>
+    <dimen name="sgula_font_sm">14sp</dimen>
+    <dimen name="sgula_font_base">16sp</dimen>
+    <dimen name="sgula_font_lg">18sp</dimen>
+    <dimen name="sgula_font_xl">20sp</dimen>
+    <dimen name="sgula_font_xxl">24sp</dimen>
+    <dimen name="sgula_font_xxxl">30sp</dimen>
+    <dimen name="sgula_font_display">36sp</dimen>
+
+    <dimen name="sgula_button_h_padding">22dp</dimen>
+    <dimen name="sgula_button_v_padding">14dp</dimen>
+    <dimen name="sgula_button_min_height">48dp</dimen>
+    <dimen name="sgula_button_small_h_padding">16dp</dimen>
+    <dimen name="sgula_button_small_v_padding">10dp</dimen>
+    <dimen name="sgula_button_small_min_height">40dp</dimen>
+
+    <dimen name="sgula_field_h_padding">16dp</dimen>
+    <dimen name="sgula_field_v_padding">13dp</dimen>
+    <dimen name="sgula_field_border">1dp</dimen>
+    <dimen name="sgula_field_border_selected">2dp</dimen>
+    <dimen name="sgula_text_area_min_height">120dp</dimen>
+
+    <dimen name="sgula_ring_diameter">120dp</dimen>
+    <dimen name="sgula_ring_stroke">10dp</dimen>
+    <dimen name="sgula_track_art">48dp</dimen>
+    <dimen name="sgula_icon_toggle">44dp</dimen>
+    <dimen name="sgula_icon">24dp</dimen>
+    <dimen name="sgula_play_button">52dp</dimen>
+    <dimen name="sgula_play_icon">26dp</dimen>
+    <dimen name="sgula_modal_max_width">420dp</dimen>
+    <dimen name="sgula_modal_icon">56dp</dimen>
+    <dimen name="sgula_nav_underline">2dp</dimen>
+    <dimen name="sgula_nav_dot">10dp</dimen>
+
+    <dimen name="sgula_plant_ring_small">14dp</dimen>
+    <dimen name="sgula_plant_ring_large">22dp</dimen>
+    <dimen name="sgula_tab_min_height">40dp</dimen>
+</resources>
