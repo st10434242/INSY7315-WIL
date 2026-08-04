@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
@@ -17,6 +18,101 @@
             style="@style/Widget.Sgula.Text.PageTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Player" />
+            android:text="David's player" />
+
+        <TextView
+            style="@style/Widget.Sgula.Text.PageSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/player_recommendation_subtitle"
+            android:text="Your matched meditation is loaded and ready to play." />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Sgula.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sgula_space_4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Widget.Sgula.Text.CardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recommended session" />
+
+                <TextView
+                    style="@style/Widget.Sgula.Text.CardBody"
+                    android:id="@+id/player_category_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Meditation category: Calm reset" />
+
+                <TextView
+                    style="@style/Widget.Sgula.Text.CardBody"
+                    android:id="@+id/player_broadcast_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sgula_space_1"
+                    android:text="Broadcast: David's soft breath broadcast" />
+
+                <TextView
+                    style="@style/Widget.Sgula.Text.CardBody"
+                    android:id="@+id/player_answer_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sgula_space_1"
+                    android:text="Matched from: Calm" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            style="@style/Widget.Sgula.Text.SectionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sgula_space_5"
+            android:text="Now playing" />
+
+        <com.example.insy7315_wil_.ui.widget.SgulaPlayerBarView
+            android:id="@+id/player_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sgula_space_3"
+            app:sgulaTitle="Calm reset"
+            app:sgulaSubtitle="David's soft breath broadcast"
+            app:sgulaElapsed="0:00"
+            app:sgulaTotal="12:00"
+            app:sgulaProgress="0.12"
+            app:sgulaPlaying="true"
+            app:sgulaLooping="false"
+            app:sgulaFavourite="true" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Sgula.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sgula_space_4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Widget.Sgula.Text.CardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="What you can do here" />
+
+                <TextView
+                    style="@style/Widget.Sgula.Text.CardBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Use play, loop, and favourite controls to keep the session ready for your next check-in." />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
