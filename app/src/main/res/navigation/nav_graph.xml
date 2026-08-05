@@ -119,7 +119,11 @@
     <fragment
         android:id="@+id/moodHistoryFragment"
         android:name="com.example.insy7315_wil_.ui.screens.mood.MoodHistoryFragment"
-        tools:layout="@layout/fragment_mood_history" />
+        tools:layout="@layout/fragment_mood_history">
+        <action
+            android:id="@+id/action_moodHistoryFragment_to_moodLogFragment"
+            app:destination="@id/moodLogFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/journalEditorFragment"
