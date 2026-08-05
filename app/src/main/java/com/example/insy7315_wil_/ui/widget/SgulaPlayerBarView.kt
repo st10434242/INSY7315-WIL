@@ -78,6 +78,9 @@ class SgulaPlayerBarView @JvmOverloads constructor(
         favouriteView = findViewById(R.id.player_favourite)
         seekView = findViewById(R.id.player_seek)
 
+        // marquee sits still unless the view is selected, nothing to do with the card's own state
+        titleView.isSelected = true
+
         playView.setOnClickListener {
             isPlaying = !isPlaying
             onPlayPause?.invoke(isPlaying)

@@ -54,7 +54,7 @@ class SgulaTabsView @JvmOverloads constructor(
         tabViews.clear()
 
         val inflater = LayoutInflater.from(context)
-        val gap = resources.getDimensionPixelSize(R.dimen.sgula_space_2)
+        val gap = resources.getDimensionPixelSize(R.dimen.sgula_space_1)
 
         tabs.forEachIndexed { index, label ->
             val tab = inflater.inflate(R.layout.view_tab_item, this, false) as TextView
