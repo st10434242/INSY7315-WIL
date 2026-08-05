@@ -49,6 +49,7 @@
     <dimen name="sgula_ring_diameter">120dp</dimen>
     <dimen name="sgula_ring_stroke">10dp</dimen>
     <dimen name="sgula_track_art">48dp</dimen>
+    <dimen name="sgula_player_art">220dp</dimen>
     <dimen name="sgula_icon_toggle">44dp</dimen>
     <dimen name="sgula_icon">24dp</dimen>
     <dimen name="sgula_play_button">52dp</dimen>

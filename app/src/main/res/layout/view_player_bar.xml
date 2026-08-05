@@ -44,8 +44,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textFontWeight="700"
-                    android:maxLines="1"
-                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
                     tools:text="Evening wind down" />
 
                 <TextView
@@ -54,6 +56,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/sgula_text_tertiary"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     tools:text="Guided breathing" />
             </LinearLayout>
 
