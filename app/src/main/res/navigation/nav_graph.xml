@@ -15,6 +15,11 @@
         <action
             android:id="@+id/action_launchFragment_to_guestLandingFragment"
             app:destination="@id/guestLandingFragment" />
+        <action
+            android:id="@+id/action_launchFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/launchFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -73,6 +78,9 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/launchFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_guestLandingFragment_to_audioLibraryFragment"
+            app:destination="@id/audioLibraryFragment" />
     </fragment>
 
     <fragment
