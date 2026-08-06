@@ -39,6 +39,12 @@
     <color name="sgula_danger_600">#FF954739</color>
     <color name="sgula_danger_700">#FF7A3A2F</color>
 
+    <color name="sgula_plant_100">#FFA9BC93</color>
+    <color name="sgula_plant_300">#FF8FA97C</color>
+    <color name="sgula_plant_500">#FF74905F</color>
+    <color name="sgula_plant_600">#FF5C7549</color>
+    <color name="sgula_plant_700">#FF4A5F3B</color>
+
     <color name="sgula_background">@color/sgula_cream_0</color>
     <color name="sgula_surface_sunken">@color/sgula_cream_50</color>
     <color name="sgula_border">@color/sgula_warm_gray_200</color>

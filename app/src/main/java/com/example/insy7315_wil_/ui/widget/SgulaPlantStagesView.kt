@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.res.use
@@ -16,8 +17,18 @@ class SgulaPlantStagesView @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
     private val itemViews = mutableListOf<View>()
-    private val ringSmall = resources.getDimensionPixelSize(R.dimen.sgula_plant_ring_small)
-    private val ringLarge = resources.getDimensionPixelSize(R.dimen.sgula_plant_ring_large)
+    private val iconSmallW = resources.getDimensionPixelSize(R.dimen.sgula_plant_stage_icon_sm_w)
+    private val iconSmallH = resources.getDimensionPixelSize(R.dimen.sgula_plant_stage_icon_sm_h)
+    private val iconLargeW = resources.getDimensionPixelSize(R.dimen.sgula_plant_stage_icon_lg_w)
+    private val iconLargeH = resources.getDimensionPixelSize(R.dimen.sgula_plant_stage_icon_lg_h)
+
+    private val stageIcons = intArrayOf(
+        R.drawable.ic_plant_seed,
+        R.drawable.ic_plant_sprout,
+        R.drawable.ic_plant_growing,
+        R.drawable.ic_plant_blooming,
+        R.drawable.ic_plant_wilted,
+    )
 
     private var wiltedIndex = -1
 
@@ -62,6 +73,8 @@ class SgulaPlantStagesView @JvmOverloads constructor(
             item.layoutParams = params
 
             item.findViewById<TextView>(R.id.plant_label).text = label
+            item.findViewById<ImageView>(R.id.plant_icon)
+                .setImageResource(stageIcons.getOrElse(index) { stageIcons[0] })
 
             addView(item)
             itemViews += item
@@ -80,12 +93,14 @@ class SgulaPlantStagesView @JvmOverloads constructor(
             item.isSelected = isCurrent
             item.isActivated = isWiltedSlot
 
-            val ring = item.findViewById<View>(R.id.plant_ring)
-            val size = if (isCurrent && !isWiltedSlot) ringLarge else ringSmall
-            if (ring.layoutParams.width != size) {
-                ring.layoutParams = ring.layoutParams.apply {
-                    width = size
-                    height = size
+            val icon = item.findViewById<ImageView>(R.id.plant_icon)
+            val isLarge = isCurrent && !isWiltedSlot
+            val width = if (isLarge) iconLargeW else iconSmallW
+            val height = if (isLarge) iconLargeH else iconSmallH
+            if (icon.layoutParams.width != width) {
+                icon.layoutParams = icon.layoutParams.apply {
+                    this.width = width
+                    this.height = height
                 }
             }
         }

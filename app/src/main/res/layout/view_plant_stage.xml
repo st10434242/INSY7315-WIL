@@ -12,22 +12,13 @@
     android:paddingTop="@dimen/sgula_space_3"
     android:paddingBottom="@dimen/sgula_space_3">
 
-    <FrameLayout
-        android:id="@+id/plant_ring"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:background="@drawable/sgula_plant_ring"
-        android:duplicateParentState="true">
-
-        <View
-            android:id="@+id/plant_dot"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
-            android:layout_gravity="center"
-            android:background="@drawable/sgula_dot_14"
-            android:backgroundTint="@color/sgula_plant_dot"
-            android:duplicateParentState="true" />
-    </FrameLayout>
+    <ImageView
+        android:id="@+id/plant_icon"
+        android:layout_width="@dimen/sgula_plant_stage_icon_sm_w"
+        android:layout_height="@dimen/sgula_plant_stage_icon_sm_h"
+        android:importantForAccessibility="no"
+        android:duplicateParentState="true"
+        tools:src="@drawable/ic_plant_sprout" />
 
     <TextView
         android:id="@+id/plant_label"
