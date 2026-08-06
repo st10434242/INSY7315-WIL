@@ -6,16 +6,19 @@
     </style>
 
     <style name="TextAppearance.Sgula.H1">
+        <item name="android:fontFamily">@font/quicksand</item>
         <item name="android:textSize">@dimen/sgula_font_xxl</item>
         <item name="android:textFontWeight">700</item>
     </style>
 
     <style name="TextAppearance.Sgula.H2">
+        <item name="android:fontFamily">@font/quicksand</item>
         <item name="android:textSize">@dimen/sgula_font_xl</item>
         <item name="android:textFontWeight">700</item>
     </style>
 
     <style name="TextAppearance.Sgula.H3">
+        <item name="android:fontFamily">@font/quicksand</item>
         <item name="android:textSize">@dimen/sgula_font_lg</item>
         <item name="android:textFontWeight">700</item>
     </style>
@@ -64,12 +67,14 @@
     </style>
 
     <style name="TextAppearance.Sgula.Affirmation">
+        <item name="android:fontFamily">@font/quicksand</item>
         <item name="android:textSize">@dimen/sgula_font_xl</item>
         <item name="android:textFontWeight">600</item>
         <item name="android:textColor">@color/sgula_plum_900</item>
     </style>
 
     <style name="TextAppearance.Sgula.RingValue">
+        <item name="android:fontFamily">@font/quicksand</item>
         <item name="android:textSize">@dimen/sgula_font_xxl</item>
         <item name="android:textFontWeight">700</item>
         <item name="android:textColor">@color/sgula_plum_800</item>
@@ -99,7 +104,13 @@
     </style>
 
     <style name="TextAppearance.Sgula.StreakDays" parent="TextAppearance.Sgula.H3">
+        <item name="android:fontFamily">@font/quicksand</item>
         <item name="android:textColor">@color/sgula_accent_700</item>
+    </style>
+
+    <style name="TextAppearance.Sgula.PlantStageName" parent="TextAppearance.Sgula.H2">
+        <item name="android:fontFamily">@font/quicksand</item>
+        <item name="android:textColor">@color/sgula_plum_800</item>
     </style>
 
     <style name="TextAppearance.Sgula.StreakLabel" parent="TextAppearance.Sgula.BodySmall">

@@ -162,6 +162,13 @@
         <item name="android:max">100</item>
     </style>
 
+    <style name="Widget.Sgula.GrowBar" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/sgula_growbar_progress</item>
+        <item name="android:minHeight">@dimen/sgula_growbar_height</item>
+        <item name="android:maxHeight">@dimen/sgula_growbar_height</item>
+        <item name="android:max">100</item>
+    </style>
+
     <style name="Widget.Sgula.IconToggle" parent="">
         <item name="android:layout_width">@dimen/sgula_icon_toggle</item>
         <item name="android:layout_height">@dimen/sgula_icon_toggle</item>
@@ -198,6 +205,11 @@
     </style>
 
     <style name="Widget.Sgula.Text.SectionTitle" parent="Widget.Sgula.Text.H2" />
+
+    <style name="Widget.Sgula.Text.PlantStageName">
+        <item name="android:textAppearance">@style/TextAppearance.Sgula.PlantStageName</item>
+        <item name="android:lineHeight">25sp</item>
+    </style>
 
     <style name="Widget.Sgula.Text.SectionNote" parent="Widget.Sgula.Text.BodySmall">
         <item name="android:textColor">@color/sgula_text_secondary</item>
