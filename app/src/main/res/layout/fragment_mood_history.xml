@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
+    android:fillViewport="true"
     android:paddingTop="@dimen/sgula_space_5"
     android:paddingBottom="@dimen/sgula_space_6"
     tools:ignore="HardcodedText">
@@ -11,12 +13,871 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingStart="@dimen/sgula_space_5"
+        android:paddingEnd="@dimen/sgula_space_5"
         android:orientation="vertical">
+
+        <TextView
+            style="@style/Widget.Sgula.Text.Eyebrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Past 30 days" />
 
         <TextView
             style="@style/Widget.Sgula.Text.PageTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mood history" />
+
+        <TextView
+            style="@style/Widget.Sgula.Text.PageSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tap a day to see the note that came with it." />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Sgula.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sgula_space_4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Widget.Sgula.Text.CardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Month snapshot" />
+
+                <TextView
+                    style="@style/Widget.Sgula.Text.CardBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="A compact view of the last month, with the strongest days highlighted." />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sgula_space_4"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Sgula.Text.H3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="21" />
+
+                        <TextView
+                            style="@style/Widget.Sgula.Text.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Logged days" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Sgula.Text.H3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4.2" />
+
+                        <TextView
+                            style="@style/Widget.Sgula.Text.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Average mood" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Sgula.Text.H3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12" />
+
+                        <TextView
+                            style="@style/Widget.Sgula.Text.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Best streak" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Sgula.Card.Table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sgula_space_4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/sgula_space_5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/Widget.Sgula.Text.CardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Calendar" />
+
+                    <TextView
+                        style="@style/Widget.Sgula.StatusBadge.Active"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sgula_space_3"
+                        android:text="Selected day" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sgula_space_3"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/Widget.Sgula.Text.TableHeader"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Mon" />
+
+                    <TextView
+                        style="@style/Widget.Sgula.Text.TableHeader"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Tue" />
+
+                    <TextView
+                        style="@style/Widget.Sgula.Text.TableHeader"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Wed" />
+
+                    <TextView
+                        style="@style/Widget.Sgula.Text.TableHeader"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Thu" />
+
+                    <TextView
+                        style="@style/Widget.Sgula.Text.TableHeader"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Fri" />
+
+                    <TextView
+                        style="@style/Widget.Sgula.Text.TableHeader"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Sat" />
+
+                    <TextView
+                        style="@style/Widget.Sgula.Text.TableHeader"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Sun" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sgula_space_2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="1&#10;😞"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="2&#10;😕"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="3&#10;😐"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="4&#10;🙂"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="5&#10;😄"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary"
+                        android:selected="true" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="6&#10;😌"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="7&#10;😊"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sgula_space_1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="8&#10;😞"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="9&#10;😕"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="10&#10;😐"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="11&#10;🙂"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="12&#10;😄"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="13&#10;😌"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="14&#10;😊"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sgula_space_1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="15&#10;😞"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="16&#10;😕"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="17&#10;😐"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="18&#10;🙂"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="19&#10;😄"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="20&#10;😌"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="21&#10;😊"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sgula_space_1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="22&#10;😞"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="23&#10;😕"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="24&#10;😐"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="25&#10;🙂"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="26&#10;😄"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="27&#10;😌"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/sgula_space_1"
+                        android:background="@drawable/sgula_mood_item_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:padding="@dimen/sgula_space_2"
+                        android:text="28&#10;😊"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
+                        android:textColor="@color/sgula_text_secondary" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            style="@style/Widget.Sgula.Text.SectionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sgula_space_4"
+            android:text="Tappable entries" />
+
+        <TextView
+            style="@style/Widget.Sgula.Text.SectionNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Each card can open the note behind that day." />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Sgula.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/Widget.Sgula.Text.CardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today" />
+
+                    <TextView
+                        style="@style/Widget.Sgula.PointsToast"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sgula_space_3"
+                        android:text="😄 5 / 5" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Widget.Sgula.Text.CardBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sgula_space_2"
+                    android:text="Felt steady after a long walk and finished the afternoon lighter than expected." />
+
+                <TextView
+                    style="@style/Widget.Sgula.Text.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sgula_space_2"
+                    android:text="Tap to view note" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Sgula.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sgula_space_3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/Widget.Sgula.Text.CardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tue, 12 Aug" />
+
+                    <TextView
+                        style="@style/Widget.Sgula.Text.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sgula_space_3"
+                        android:text="🙂 4 / 5" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Widget.Sgula.Text.CardBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sgula_space_2"
+                    android:text="Busy morning, but the afternoon reset really helped." />
+
+                <TextView
+                    style="@style/Widget.Sgula.Text.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sgula_space_2"
+                    android:text="Tap to view note" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Sgula.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sgula_space_3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/Widget.Sgula.Text.CardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fri, 8 Aug" />
+
+                    <TextView
+                        style="@style/Widget.Sgula.Text.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sgula_space_3"
+                        android:text="😐 3 / 5" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Widget.Sgula.Text.CardBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sgula_space_2"
+                    android:text="Kept it simple, took breaks, and got back on track by evening." />
+
+                <TextView
+                    style="@style/Widget.Sgula.Text.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sgula_space_2"
+                    android:text="Tap to view note" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Sgula.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sgula_space_4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Widget.Sgula.Text.CardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selected note" />
+
+                <TextView
+                    style="@style/Widget.Sgula.Text.CardBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sgula_space_2"
+                    android:text="Long walk through the neighborhood, then a quiet coffee break. I felt more present by late afternoon." />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Sgula.Button.Secondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sgula_space_4"
+            android:text="Back to log" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
