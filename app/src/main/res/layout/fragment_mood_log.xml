@@ -76,8 +76,7 @@
                         android:minHeight="96dp"
                         android:orientation="vertical"
                         android:paddingTop="@dimen/sgula_space_3"
-                        android:paddingBottom="@dimen/sgula_space_3"
-                        android:selected="false">
+                        android:paddingBottom="@dimen/sgula_space_3">
 
                         <TextView
                             style="@style/Widget.Sgula.Text.H3"
@@ -182,8 +181,7 @@
                         android:minHeight="96dp"
                         android:orientation="vertical"
                         android:paddingTop="@dimen/sgula_space_3"
-                        android:paddingBottom="@dimen/sgula_space_3"
-                        android:selected="true">
+                        android:paddingBottom="@dimen/sgula_space_3">
 
                         <TextView
                             style="@style/Widget.Sgula.Text.H3"

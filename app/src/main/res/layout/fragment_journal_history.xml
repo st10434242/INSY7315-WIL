@@ -291,8 +291,7 @@
                         android:padding="@dimen/sgula_space_2"
                         android:text="5"
                         android:textAlignment="center"
-                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
-                        android:selected="true" />
+                        android:textAppearance="@style/Widget.Sgula.Text.BodySmall" />
 
                     <TextView
                         android:layout_width="0dp"

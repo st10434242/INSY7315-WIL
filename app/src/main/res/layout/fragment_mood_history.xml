@@ -302,8 +302,7 @@
                         android:text="5&#10;😄"
                         android:textAlignment="center"
                         android:textAppearance="@style/Widget.Sgula.Text.BodySmall"
-                        android:textColor="@color/sgula_text_secondary"
-                        android:selected="true" />
+                        android:textColor="@color/sgula_text_secondary" />
 
                     <TextView
                         android:layout_width="0dp"
