@@ -1,48 +1,65 @@
-﻿<!DOCTYPE html>
+@inject Microsoft.Extensions.Options.IOptions<SiteOptions> SiteOptions
+@{
+    var site = SiteOptions.Value;
+    var action = ViewContext.RouteData.Values["action"]?.ToString() ?? "Index";
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - INSY7315_WEBSITE</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <meta name="description" content="Sgula is a calm space between your therapy sessions. Daily broadcasts, guided audio, mood check-ins and a private journal from Growth &amp; Development with @site.TherapistName." />
+    <meta name="theme-color" content="#FBF8F2" />
+    <title>@ViewData["Title"] · Sgula</title>
+    <link rel="icon" href="~/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="~/fonts/quicksand.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/INSY7315_WEBSITE.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">INSY7315_WEBSITE</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    @await Html.PartialAsync("_Icons")
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - INSY7315_WEBSITE - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <header class="site-header">
+        <div class="shell">
+            <a class="brand" asp-controller="Home" asp-action="Index">
+                <img src="~/img/plants/sprout.svg" alt="" />
+                Sgula
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav" id="site-nav">
+                <a class="@(action == "Index" ? "active" : null)" asp-controller="Home" asp-action="Index">Home</a>
+                <a href="@Url.Action("Index", "Home")#inside">Features</a>
+                <a href="@Url.Action("Index", "Home")#privacy">Privacy</a>
+                <a class="btn btn-primary" href="@site.PlayStoreUrl">Get the app</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <div class="shell">
+            <div>
+                <a class="brand" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/plants/sprout.svg" alt="" />
+                    Sgula
+                </a>
+                <p>A calm space between your sessions. Growth &amp; Development with @site.TherapistName.</p>
+            </div>
+            <div class="footer-links">
+                <a href="@Url.Action("Index", "Home")#inside">Features</a>
+                <a href="@Url.Action("Index", "Home")#privacy">Privacy</a>
+                <a href="mailto:@site.ContactEmail">Contact</a>
+            </div>
+            <p>&copy; <span data-year>2026</span> Sgula</p>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
