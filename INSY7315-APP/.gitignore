@@ -18,7 +18,6 @@ build/
 
 # Gradle & Local Config
 .gradle/
-wrapper/
 .gradle-work/
 local.properties
 
